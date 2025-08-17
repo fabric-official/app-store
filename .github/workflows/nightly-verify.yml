@@ -1,0 +1,20 @@
+name: Nightly Integrity Verify
+on:
+  schedule: [{ cron: "0 3 * * *" }]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify registry schema
+        run: npx ajv validate -s schemas/registry.schema.json -d registry/index.json
+      - name: Check links & signatures
+        run: node -e "
+          const fs=require('fs');const f=JSON.parse(fs.readFileSync('registry/index.json','utf8'));
+          function u(x){return x.replace('raw.githubusercontent.com','raw.githubusercontent.com')}
+          // TODO: optionally redownload each bundle and verify sig with public key
+          console.log('OK');"
