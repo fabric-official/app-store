@@ -1,17 +1,23 @@
 name: Validate & Publish Plugin
+
 on:
   pull_request:
     paths:
       - "plugins/**"
       - "schemas/**"
+      - "registry/**"
+      - "scripts/**"
   push:
     branches: [main]
     paths:
       - "plugins/**"
+      - "schemas/**"
+      - "registry/**"
+      - "scripts/**"
 
 permissions:
   contents: write
-  id-token: write
+  id-token: write  # required for cosign keyless
 
 jobs:
   build-validate:
@@ -21,36 +27,93 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v4
-        with: { node-version: "20" }
+        with:
+          node-version: "20"
 
       - name: Install deps
         run: npm ci
-        # package.json should include ajv, ajv-formats, semver, cyclonedx/cdxgen or anchore/syft, cosign, minisign
+        # package.json should include ajv, ajv-formats, semver
+        # sbom: @cyclonedx/cdxgen (or syft)
+        # signing: cosign (installed below) or minisign if you prefer
 
+      # --- SCHEMA & LINK VALIDATION (your existing script) ---
       - name: Validate plugin manifests
         run: node scripts/validate-plugin.mjs
 
+      # --- GENERATE SBOMs FOR CHANGED/NEW BUNDLES ---
+      - name: Install cdxgen
+        run: npm i -g @cyclonedx/cdxgen
       - name: Generate SBOMs for changed bundles
+        shell: bash
         run: |
-          npx @cyclonedx/cdxgen -o sbom.json -t javascript -r .
-          # or: syft packages dir:plugins -o cyclonedx-json > sbom.json
-
-      - name: Sign new/updated bundles (cosign keyless)
-        run: |
-          for f in $(git diff --name-only HEAD~1 | grep "plugins/.*/bundle/index.esm.js" || true); do
-            cosign sign-blob --yes $f > "$f.sig"
+          set -euo pipefail
+          changed=$(git diff --name-only HEAD~1..HEAD || true)
+          bundles=$(echo "$changed" | grep -E '^plugins/.+/bundle/index\.esm\.js$' || true)
+          # Also ensure any missing sboms are created
+          for b in $bundles; do
+            dir="$(dirname "$b")"
+            (cd "$dir" && cdxgen -o sbom.json -t javascript -r .)
+          done
+          # Create SBOMs for any plugin missing one (first time publish)
+          for p in plugins/*; do
+            [ -d "$p/bundle" ] || continue
+            if [ ! -s "$p/bundle/sbom.json" ] && [ -f "$p/bundle/index.esm.js" ]; then
+              (cd "$p/bundle" && cdxgen -o sbom.json -t javascript -r .)
+            fi
           done
 
-      - name: Update registry
-        run: node scripts/update-registry.mjs
+      # --- INSTALL COSIGN (FOR KEYLESS SIGNING) ---
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3.7.0
 
+      # --- SIGN NEW/UPDATED BUNDLES (PUSH ONLY) ---
+      - name: Sign new/updated bundles (cosign keyless)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          COSIGN_EXPERIMENTAL: "1"
+        shell: bash
+        run: |
+          set -euo pipefail
+          changed=$(git diff --name-only HEAD~1..HEAD || true)
+          bundles=$(echo "$changed" | grep -E '^plugins/.+/bundle/index\.esm\.js$' || true)
+          for f in $bundles; do
+            echo "Signing $f"
+            cosign sign-blob --yes "$f" > "$f.sig"
+          done
+
+      # --- HARD GUARDS (NO PLACEHOLDERS, NO DEMOS, PARITY) ---
+      - name: No placeholders anywhere
+        run: node scripts/assert-no-placeholders.mjs
+
+      - name: Registry ↔ disk parity
+        run: node scripts/check-registry-vs-disk.mjs
+
+      - name: No demos published
+        run: node scripts/assert-no-demos.mjs
+
+      # --- REGISTRY COMPUTED FROM DISK TRUTH ---
+      # PRs: verify the registry is correct (no writes)
+      - name: Registry must be in sync (PR check)
+        if: github.event_name == 'pull_request'
+        run: node scripts/sync-registry.mjs --check
+
+      # Push to main: write + sign the registry from disk truth
+      - name: Update registry from disk (write)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: node scripts/sync-registry.mjs --write
+
+      # --- SIGN REGISTRY (PUSH ONLY; uses your existing signer) ---
       - name: Sign registry
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: node scripts/sign.mjs registry/index.json registry/index.json.sig
 
+      # --- COMMIT ANY GENERATED ARTIFACTS (PUSH ONLY) ---
       - name: Commit changes
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
+          set -e
           git config user.name "fabric-bot"
           git config user.email "bot@fabric"
-          git add registry/index.json registry/index.json.sig plugins/**/bundle/index.esm.js.sig plugins/**/bundle/sbom.json
+          git add registry/index.json registry/index.json.sig plugins/**/bundle/index.esm.js.sig plugins/**/bundle/sbom.json || true
           git commit -m "chore: publish plugins" || echo "No changes"
-          git push
+          git push || echo "Nothing to push"
