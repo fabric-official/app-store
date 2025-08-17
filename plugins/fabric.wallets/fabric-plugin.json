@@ -1,0 +1,14 @@
+{
+  "id": "fabric.wallets",
+  "name": "Wallets",
+  "version": "1.0.0",
+  "publisher": "fabric",
+  "entry": "bundle/index.esm.js",
+  "routes": [{ "path": "/plugins/wallets", "title": "Wallets", "navGroup": "Finance" }],
+  "mountPoints": { "overview:kpis": ["WalletBalances"] },
+  "permissions": ["royalties:read"],
+  "settingsSchema": {
+    "type": "object",
+    "properties": { "preferredChain": { "type": "string", "enum": ["base","polygon","eth"] } }
+  }
+}
