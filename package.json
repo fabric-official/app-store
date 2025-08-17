@@ -1,0 +1,19 @@
+{
+  "name": "fabric-app-store",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-plugin.mjs",
+    "update-registry": "node scripts/update-registry.mjs",
+    "sign-registry": "node scripts/sign.mjs registry/index.json registry/index.json.sig",
+    "verify-nightly": "node scripts/verify-links.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "minimatch": "^9.0.4",
+    "semver": "^7.6.3",
+    "yaml": "^2.6.0"
+  }
+}
