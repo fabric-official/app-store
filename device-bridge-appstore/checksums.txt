@@ -1,0 +1,1 @@
+SHA256  artifacts/device-bridge-1.0.0.tgz  7139a1516889fb87aaa1ef3fb942a75313dedb06a835af618f9aa0a135b50d0a
