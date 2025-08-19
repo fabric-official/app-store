@@ -1,0 +1,2 @@
+SHA256  artifacts/fabric-forge-1.0.0.tgz  253cb40d6c659ecf78d3ec4d59ae5864dc1eac514dd90517586fb3cf3c59e8cb
+SHA256  artifacts/device-bridge-1.0.0.tgz  7139a1516889fb87aaa1ef3fb942a75313dedb06a835af618f9aa0a135b50d0a

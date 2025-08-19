@@ -1,0 +1,59 @@
+{
+  "id": "device-bridge",
+  "name": "Device Bridge",
+  "version": "1.0.0",
+  "publisher": {
+    "name": "Atomic Limited",
+    "org": "fabric-official",
+    "website": "https://github.com/fabric-official"
+  },
+  "license": "Apache-2.0",
+  "categories": [
+    "devices",
+    "bridge",
+    "telemetry",
+    "policy",
+    "agents"
+  ],
+  "description": "Secure device enrollment, QR pairing, telemetry, and agent assignment for Fabric Supernet.",
+  "homepage": "https://github.com/fabric-official/app-store",
+  "repository": "https://github.com/fabric-official/fabric-supernet",
+  "min_dashboard_version": "1.0.0",
+  "entry": "@fabric-official/device-bridge",
+  "routes": [
+    "/bridge/devices",
+    "/bridge/pair",
+    "/bridge/telemetry",
+    "/bridge/agents",
+    "/bridge/policies"
+  ],
+  "endpoints_required": [
+    "GET /api/bridge/devices",
+    "POST /api/bridge/devices/:id/approve",
+    "POST /api/bridge/devices/:id/reject",
+    "POST /api/bridge/devices/:id/assign-agent",
+    "POST /api/bridge/devices/:id/energy",
+    "GET /api/bridge/agents",
+    "GET /api/bridge/pair?kind=...",
+    "GET /api/bridge/telemetry/stream",
+    "WS  /api/bridge/events"
+  ],
+  "permissions": {
+    "ui": [
+      "navigation",
+      "routes"
+    ],
+    "network": [
+      "fetch",
+      "websocket",
+      "sse"
+    ],
+    "storage": []
+  },
+  "artifact": {
+    "path": "artifacts/device-bridge-1.0.0.tgz",
+    "sha256": "7139a1516889fb87aaa1ef3fb942a75313dedb06a835af618f9aa0a135b50d0a",
+    "size_bytes": 9088
+  },
+  "created_at": "2025-08-19T03:59:45.086298Z"
+}

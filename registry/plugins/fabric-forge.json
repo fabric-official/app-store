@@ -1,0 +1,60 @@
+{
+  "id": "fabric-forge",
+  "name": "Fabric Forge",
+  "version": "1.0.0",
+  "publisher": {
+    "name": "Atomic Limited",
+    "org": "fabric-official",
+    "website": "https://github.com/fabric-official"
+  },
+  "license": "Apache-2.0",
+  "categories": [
+    "community",
+    "learning",
+    "events",
+    "xp",
+    "agents",
+    "chat"
+  ],
+  "description": "Skool-style learning + community + chat + XP + agent showcases for Fabric developers. Production-grade plugin for the Supernet Dashboard.",
+  "homepage": "https://github.com/fabric-official/app-store",
+  "repository": "https://github.com/fabric-official/fabric-supernet",
+  "min_dashboard_version": "1.0.0",
+  "entry": "@fabric-official/fabric-forge",
+  "routes": [
+    "/forge/community",
+    "/forge/courses",
+    "/forge/events",
+    "/forge/xp",
+    "/forge/agents",
+    "/forge/chat"
+  ],
+  "endpoints_required": [
+    "GET /api/forge/feed",
+    "POST /api/forge/feed",
+    "GET /api/forge/feed/stream",
+    "WS  /api/forge/chat",
+    "GET /api/forge/courses",
+    "GET /api/forge/events",
+    "GET /api/forge/agents",
+    "GET /api/forge/xp"
+  ],
+  "permissions": {
+    "ui": [
+      "navigation",
+      "routes"
+    ],
+    "network": [
+      "fetch",
+      "websocket",
+      "sse"
+    ],
+    "storage": []
+  },
+  "artifact": {
+    "path": "artifacts/fabric-forge-1.0.0.tgz",
+    "sha256": "253cb40d6c659ecf78d3ec4d59ae5864dc1eac514dd90517586fb3cf3c59e8cb",
+    "size_bytes": 9720
+  },
+  "created_at": "2025-08-19T03:51:19.607442Z"
+}
