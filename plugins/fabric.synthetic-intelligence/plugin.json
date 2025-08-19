@@ -1,0 +1,10 @@
+﻿{
+  "name": "synthetic-intelligence",
+  "publisher": "fabric",
+  "kind": "plugin-page",
+  "version": "1.0.0",
+  "route": "/plugins/synthetic-intelligence",
+  "navLabel": "Synthetic Intelligence",
+  "entry": "index.tsx",
+  "permissions": ["read:audit","read:agents"]
+}
