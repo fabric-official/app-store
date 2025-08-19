@@ -3,7 +3,7 @@
     {
       "id": "fabric.brain-adapter",
       "title": "Brain Adapter",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "manifest": "plugins/fabric.brain-adapter/plugin.json",
       "artifact": "plugins/fabric.brain-adapter/bundle.zip",
       "signature": "plugins/fabric.brain-adapter/bundle.zip.sig"
