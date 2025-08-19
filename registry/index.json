@@ -1,12 +1,12 @@
 ﻿{
   "plugins": [
     {
-      "id": "fabric.synthetic-intelligence",
-      "title": "Synthetic Intelligence",
-      "version": "1.0.0",
-      "manifest": "plugins/fabric.synthetic-intelligence/plugin.json",
-      "artifact": "plugins/fabric.synthetic-intelligence/bundle.zip",
-      "signature": "plugins/fabric.synthetic-intelligence/bundle.zip.sig"
+      "id": "fabric.brain-adapter",
+      "title": "Brain Adapter",
+      "version": "1.1.0",
+      "manifest": "plugins/fabric.brain-adapter/plugin.json",
+      "artifact": "plugins/fabric.brain-adapter/bundle.zip",
+      "signature": "plugins/fabric.brain-adapter/bundle.zip.sig"
     }
   ]
 }

@@ -1,0 +1,10 @@
+﻿{
+  "name": "brain-adapter",
+  "publisher": "fabric",
+  "kind": "plugin-page",
+  "version": "1.1.0",
+  "route": "/plugins/brain-adapter",
+  "navLabel": "Brain Adapter",
+  "entry": "index.tsx",
+  "permissions": ["read:audit","read:agents"]
+}
