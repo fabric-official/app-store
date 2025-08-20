@@ -78,7 +78,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  null
+                    },
+                    {
+                        "id":  "fabric.gateway.email",
+                        "name":  "Email Gateway",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.gateway.email/1.0.0/email.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.gateway.email/1.0.0/email.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  null
                     }
                 ],
-    "updated_at":  "2025-08-20T07:56:58.9150668-07:00"
+    "updated_at":  "2025-08-20T07:57:24.5061270-07:00"
 }
