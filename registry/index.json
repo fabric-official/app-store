@@ -8,6 +8,21 @@
                         "artifact":  "plugins/fabric.brain-adapter/bundle.zip",
                         "signature":  "plugins/fabric.brain-adapter/bundle.zip.sig"
                     },
-                    null
-                ]
+                    null,
+                    {
+                        "id":  "fabric.devforge-powerpack",
+                        "name":  "DevForge Power Pack",
+                        "version":  "2.0.0",
+                        "package":  "plugins/fabric.devforge-powerpack/2.0.0/devforge-powerpack.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.devforge-powerpack/2.0.0/devforge-powerpack.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  "plugins/fabric.devforge-powerpack/2.0.0/README.md"
+                    }
+                ],
+    "updated_at":  "2025-08-19T22:13:33.1685140-07:00"
 }
