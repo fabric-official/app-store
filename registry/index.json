@@ -162,7 +162,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  null
+                    },
+                    {
+                        "id":  "fabric.kms",
+                        "name":  "KMS \u0026 Attestation",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.kms/1.0.0/kms.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.kms/1.0.0/kms.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  null
                     }
                 ],
-    "updated_at":  "2025-08-20T08:03:30.2236552-07:00"
+    "updated_at":  "2025-08-20T08:04:32.0928590-07:00"
 }
