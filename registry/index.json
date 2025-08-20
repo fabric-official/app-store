@@ -218,7 +218,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  null
+                    },
+                    {
+                        "id":  "fabric.audit",
+                        "name":  "Signed Audit Log",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.audit/1.0.0/audit.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.audit/1.0.0/audit.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  null
                     }
                 ],
-    "updated_at":  "2025-08-20T08:05:37.6358535-07:00"
+    "updated_at":  "2025-08-20T08:24:57.6822384-07:00"
 }
