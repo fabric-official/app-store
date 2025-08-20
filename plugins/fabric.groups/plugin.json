@@ -1,0 +1,24 @@
+{
+  "name": "fabric.groups",
+  "displayName": "Fabric Communities",
+  "routes": [
+    {
+      "path": "/groups",
+      "component": "GroupsIndex"
+    },
+    {
+      "path": "/groups/:slug",
+      "component": "GroupHome"
+    },
+    {
+      "path": "/groups/thread/:id",
+      "component": "ThreadView"
+    }
+  ],
+  "nav": [
+    {
+      "label": "Communities",
+      "path": "/groups"
+    }
+  ]
+}

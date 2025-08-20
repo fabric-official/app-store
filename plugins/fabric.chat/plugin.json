@@ -1,0 +1,16 @@
+{
+  "name": "fabric.chat",
+  "displayName": "Fabric Chat",
+  "routes": [
+    {
+      "path": "/chat",
+      "component": "ChatRoom"
+    }
+  ],
+  "nav": [
+    {
+      "label": "Chat",
+      "path": "/chat"
+    }
+  ]
+}
