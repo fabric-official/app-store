@@ -148,7 +148,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  null
+                    },
+                    {
+                        "id":  "fabric.bridge.acoustic",
+                        "name":  "Bridge: Acoustic Modem",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.bridge.acoustic/1.0.0/acoustic.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.bridge.acoustic/1.0.0/acoustic.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  null
                     }
                 ],
-    "updated_at":  "2025-08-20T07:59:09.0317842-07:00"
+    "updated_at":  "2025-08-20T08:03:30.2236552-07:00"
 }
