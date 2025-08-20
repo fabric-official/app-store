@@ -176,7 +176,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  null
+                    },
+                    {
+                        "id":  "fabric.policy",
+                        "name":  "Policy \u0026 Permissions",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.policy/1.0.0/policy.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.policy/1.0.0/policy.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  null
                     }
                 ],
-    "updated_at":  "2025-08-20T08:04:32.0928590-07:00"
+    "updated_at":  "2025-08-20T08:04:53.4739846-07:00"
 }
