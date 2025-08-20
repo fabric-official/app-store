@@ -36,7 +36,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  "plugins/fabric.user-forge/1.0.0/README.md"
+                    },
+                    {
+                        "id":  "fabric.fabric-forge-production",
+                        "name":  "Fabric Forge Production",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.fabric-forge-production/1.0.0/fabric-forge-production.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.fabric-forge-production/1.0.0/fabric-forge-production.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  null
                     }
                 ],
-    "updated_at":  "2025-08-19T22:16:00.0782109-07:00"
+    "updated_at":  "2025-08-19T22:17:29.6915743-07:00"
 }
