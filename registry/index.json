@@ -106,7 +106,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  null
+                    },
+                    {
+                        "id":  "fabric.bridge.lora",
+                        "name":  "Bridge: LoRa",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.bridge.lora/1.0.0/lora.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.bridge.lora/1.0.0/lora.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  null
                     }
                 ],
-    "updated_at":  "2025-08-20T07:57:48.1870054-07:00"
+    "updated_at":  "2025-08-20T07:58:11.1639393-07:00"
 }
