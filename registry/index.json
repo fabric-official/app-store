@@ -246,7 +246,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  null
+                    },
+                    {
+                        "id":  "fabric.backup",
+                        "name":  "Encrypted Backup",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.backup/1.0.0/backup.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.backup/1.0.0/backup.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  null
                     }
                 ],
-    "updated_at":  "2025-08-20T08:25:31.5615678-07:00"
+    "updated_at":  "2025-08-20T08:25:53.1940901-07:00"
 }
