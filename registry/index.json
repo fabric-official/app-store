@@ -232,7 +232,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  null
+                    },
+                    {
+                        "id":  "fabric.debug-runner",
+                        "name":  "Debug Runner",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.debug-runner/1.0.0/debug-runner.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.debug-runner/1.0.0/debug-runner.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  null
                     }
                 ],
-    "updated_at":  "2025-08-20T08:24:57.6822384-07:00"
+    "updated_at":  "2025-08-20T08:25:31.5615678-07:00"
 }
