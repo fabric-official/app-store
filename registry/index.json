@@ -22,7 +22,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  "plugins/fabric.devforge-powerpack/2.0.0/README.md"
+                    },
+                    {
+                        "id":  "fabric.user-forge",
+                        "name":  "User Forge",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.user-forge/1.0.0/user-forge.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.user-forge/1.0.0/user-forge.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  "plugins/fabric.user-forge/1.0.0/README.md"
                     }
                 ],
-    "updated_at":  "2025-08-19T22:13:33.1685140-07:00"
+    "updated_at":  "2025-08-19T22:16:00.0782109-07:00"
 }
