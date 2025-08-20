@@ -204,7 +204,21 @@
                                           "algo":  "cosign"
                                       },
                         "readme":  null
+                    },
+                    {
+                        "id":  "fabric.auto-update",
+                        "name":  "Auto Updater",
+                        "version":  "1.0.0",
+                        "package":  "plugins/fabric.auto-update/1.0.0/auto-update.zip",
+                        "categories":  [
+                                           "fabric-plugin"
+                                       ],
+                        "signature":  {
+                                          "sigUrl":  "plugins/fabric.auto-update/1.0.0/auto-update.sig",
+                                          "algo":  "cosign"
+                                      },
+                        "readme":  null
                     }
                 ],
-    "updated_at":  "2025-08-20T08:05:18.3989399-07:00"
+    "updated_at":  "2025-08-20T08:05:37.6358535-07:00"
 }
